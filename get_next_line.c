@@ -6,7 +6,7 @@
 /*   By: msotnych <msotnych@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/10/16 15:13:26 by msotnych      #+#    #+#                 */
-/*   Updated: 2026/10/19 18:16:14 by msotnych      ########   odam.nl         */
+/*   Updated: 2026/10/19 18:20:34 by msotnych      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 static char read_str(int fd, char *buff)
 {
-	char *len;
+	char *contain;
 
-	len = malloc(BUFFER_SIZE + 1);
+	contain = malloc(BUFFER_SIZE + 1);
+	if (!contain)
+		return (NULL);
 }
 
 
