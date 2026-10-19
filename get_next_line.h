@@ -6,7 +6,7 @@
 /*   By: msotnych <msotnych@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/10/16 15:13:56 by msotnych      #+#    #+#                 */
-/*   Updated: 2026/10/19 11:28:46 by msotnych      ########   odam.nl         */
+/*   Updated: 2026/10/19 17:42:02 by msotnych      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,15 @@
 #include <stdio.h>
 #include <unistd.h>
 
-#ifndef	BUFFEE_SIZE
+#ifndef	BUFFER_SIZE
 # define BUFFER_SIZE 1024
 #endif
 
 char	*get_next_line(int fd);
+size_t	ft_strlen(const char *str);
+int		find_n(char *str);
+char	*ft_strjoin(char const *s1, char const *s2);
+void	free_str(char **str);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif
