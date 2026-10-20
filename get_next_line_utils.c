@@ -6,7 +6,7 @@
 /*   By: msotnych <msotnych@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/10/16 15:13:37 by msotnych      #+#    #+#                 */
-/*   Updated: 2026/10/19 17:39:59 by msotnych      ########   odam.nl         */
+/*   Updated: 2026/10/20 20:08:50 by msotnych      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ size_t	ft_strlen(const char *str)
 
 	c = 0;
 	if (!str)
-		return (0)
+		return (0);
 	while (str[c] != '\0')
 		c++;
 	return (c);
@@ -85,10 +85,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!s)
 		return (NULL);
 	l = ft_strlen(s);
-	if (start > l)
+	if ((size_t)start > l)
 		len = 0;
-	else if (l - start < len)
-		len = l - start;
+	else if (l - (size_t)start < len)
+		len = l - (size_t)start;
 	res = malloc (len + 1);
 	if (!res)
 		return (NULL);
