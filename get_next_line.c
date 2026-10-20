@@ -6,17 +6,17 @@
 /*   By: msotnych <msotnych@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/10/16 15:13:26 by msotnych      #+#    #+#                 */
-/*   Updated: 2026/10/20 20:08:12 by msotnych      ########   odam.nl         */
+/*   Updated: 2026/10/20 20:30:15 by msotnych      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static char *read_str(int fd, char *buff)
+static char	*read_str(int fd, char *buff)
 {
-	char 	*contain;
+	char	*contain;
 	ssize_t	byte_readed;
-	char 	*temp;
+	char	*temp;
 
 	contain = malloc(BUFFER_SIZE + 1);
 	if (!contain)
@@ -25,11 +25,11 @@ static char *read_str(int fd, char *buff)
 	while (byte_readed != 0 && find_n(buff) == -1)
 	{
 		byte_readed = read(fd, contain, BUFFER_SIZE);
-		if(byte_readed == -1)
+		if (byte_readed == -1)
 		{
 			free_str(&buff);
 			free_str(&contain);
-			return(NULL);
+			return (NULL);
 		}
 		contain[byte_readed] = '\0';
 		temp = buff;
@@ -42,10 +42,10 @@ static char *read_str(int fd, char *buff)
 	return (buff);
 }
 
-static char *put_str(char *buff)
+static char	*put_str(char *buff)
 {
-	char *str;
-	ssize_t s;
+	char	*str;
+	ssize_t	s;
 
 	if (!buff)
 		return (NULL);
@@ -57,18 +57,18 @@ static char *put_str(char *buff)
 	else
 		s = (ft_strlen(buff));
 	str = ft_substr(buff, 0, s);
-	return (str);		
+	return (str);
 }
 
-static char *str_rest(char *buff)
+static char	*str_rest(char *buff)
 {
-	char *rest;
-	ssize_t s;
-	size_t len;
+	char	*rest;
+	ssize_t	s;
+	size_t	len;
 
 	s = find_n(buff);
 	if (s >= 0)
-	 	len = ft_strlen(buff) - (s + 1);
+		len = ft_strlen(buff) - (s + 1);
 	else
 	{
 		free_str(&buff);
@@ -79,13 +79,12 @@ static char *str_rest(char *buff)
 	return (rest);
 }
 
-char *get_next_line(int fd)
+char	*get_next_line(int fd)
 {
-	static char *buff;
-	char *str;
-	int size;
+	static char	*buff;
+	char		*str;
+	int			size;
 
 	size = 1;
 	str = NULL;
-	
 }

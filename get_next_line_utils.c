@@ -6,7 +6,7 @@
 /*   By: msotnych <msotnych@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/10/16 15:13:37 by msotnych      #+#    #+#                 */
-/*   Updated: 2026/10/20 20:08:50 by msotnych      ########   odam.nl         */
+/*   Updated: 2026/10/20 20:28:41 by msotnych      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ size_t	ft_strlen(const char *str)
 
 int	find_n(char *str)
 {
-	int i;
-	
-	i =  0;
+	int	i;
+
+	i = 0;
 	if (!str)
 		return (-1);
 	while (str[i] != '\0')
@@ -69,7 +69,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (res);
 }
 
-void free_str(char **str)
+void	free_str(char **str)
 {
 	free(*str);
 	*str = NULL;

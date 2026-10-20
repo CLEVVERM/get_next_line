@@ -6,19 +6,19 @@
 /*   By: msotnych <msotnych@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/10/16 15:13:56 by msotnych      #+#    #+#                 */
-/*   Updated: 2026/10/19 17:42:02 by msotnych      ########   odam.nl         */
+/*   Updated: 2026/10/20 20:27:49 by msotnych      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-#include <stdio.h>
-#include <unistd.h>
+# include <stdio.h>
+# include <unistd.h>
 
-#ifndef	BUFFER_SIZE
-# define BUFFER_SIZE 1024
-#endif
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE	1024
+# endif
 
 char	*get_next_line(int fd);
 size_t	ft_strlen(const char *str);
