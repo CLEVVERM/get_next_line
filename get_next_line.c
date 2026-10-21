@@ -6,7 +6,7 @@
 /*   By: msotnych <msotnych@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/10/16 15:13:26 by msotnych      #+#    #+#                 */
-/*   Updated: 2026/10/21 14:42:28 by msotnych      ########   odam.nl         */
+/*   Updated: 2026/10/21 17:37:00 by msotnych      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static char	*read_str(int fd, char *buff)
 
 	contain = malloc(BUFFER_SIZE + 1);
 	if (!contain)
-		return (NULL);
+		return (free_str(&buff), NULL);
 	byte_readed = 1;
 	while (byte_readed != 0 && find_n(buff) == -1)
 	{
@@ -42,7 +42,7 @@ static char	*read_str(int fd, char *buff)
 		contain[byte_readed] = '\0';
 		buff = join_str(buff, contain);
 		if (!buff)
-			return (NULL);
+			return (free_str(&contain), NULL);
 	}
 	free_str(&contain);
 	return (buff);
