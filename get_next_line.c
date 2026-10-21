@@ -6,17 +6,25 @@
 /*   By: msotnych <msotnych@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/10/16 15:13:26 by msotnych      #+#    #+#                 */
-/*   Updated: 2026/10/20 20:30:15 by msotnych      ########   odam.nl         */
+/*   Updated: 2026/10/21 14:42:28 by msotnych      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
+static char	*join_str(char *buff, char *contain)
+{
+	char	*temp;
+
+	temp = ft_strjoin(buff, contain);
+	free_str(&buff);
+	return (temp);
+}
+
 static char	*read_str(int fd, char *buff)
 {
 	char	*contain;
 	ssize_t	byte_readed;
-	char	*temp;
 
 	contain = malloc(BUFFER_SIZE + 1);
 	if (!contain)
@@ -32,11 +40,9 @@ static char	*read_str(int fd, char *buff)
 			return (NULL);
 		}
 		contain[byte_readed] = '\0';
-		temp = buff;
-		buff = ft_strjoin(buff, contain);
+		buff = join_str(buff, contain);
 		if (!buff)
 			return (NULL);
-		free_str(&temp);
 	}
 	free_str(&contain);
 	return (buff);
@@ -83,8 +89,18 @@ char	*get_next_line(int fd)
 {
 	static char	*buff;
 	char		*str;
-	int			size;
 
-	size = 1;
-	str = NULL;
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
+	buff = read_str(fd, buff);
+	if (!buff)
+		return (NULL);
+	str = put_str(buff);
+	if (!str)
+	{
+		free_str(&buff);
+		return (NULL);
+	}
+	buff = str_rest(buff);
+	return (str);
 }
