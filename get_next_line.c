@@ -6,7 +6,7 @@
 /*   By: msotnych <msotnych@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/10/16 15:13:26 by msotnych      #+#    #+#                 */
-/*   Updated: 2026/10/21 17:37:00 by msotnych      ########   odam.nl         */
+/*   Updated: 2026/10/22 16:09:44 by msotnych      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,3 +104,20 @@ char	*get_next_line(int fd)
 	buff = str_rest(buff);
 	return (str);
 }
+
+// #include <fcntl.h>
+
+// int main(void)
+// {
+// 	int fd;
+// 	char *buff;
+// 	fd = open("test.txt", O_RDONLY);
+// 	buff = get_next_line(fd);
+// 	while (buff != NULL)
+// 	{
+// 		printf("%s", buff);
+// 		free(buff);
+// 		buff = get_next_line(fd);
+// 	}
+// 	close(fd);
+// }
